@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <!-- google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- custom font-->
+    <link href="dist/style.css" rel="stylesheet" />
+    <!-- javascript -->
+    <script defer src="dist/script.js"></script>
+    <title>TNT-The Notorious Team</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <a href="index.html">
+          <img src="/images/tnlogo.png" alt="logo" />
+        </a>
+      </div>
+
+      <button
+        class="header__toggle"
+        aria-controls="primary__navigation"
+        type="button"
+      >
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
+
+      <!-- navigation -->
+      <div class="header__nav" id="primary__navigation" data-visible="flase">
+        <nav>
+          <ul role="list">
+            <li role="listitem" class="active">
+              <a href="index.html"><span class="text-bold">00</span> Home</a>
+            </li>
+            <li role="listitem">
+              <a href="#"><span class="text-bold">01</span> About Us</a>
+            </li>
+            <li role="listitem">
+              <a href="#"><span class="text-bold">02</span> Members</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main container main-home">
+      <div class="main__text">
+        <h1>
+          Welcome to
+          <span class="main__text__title">TNT</span>
+          <span class="main__text__subtitle">The Notorious Team</span>
+        </h1>
+
+        <p>
+          We are a team building our own FiveM Grand Theft Auto 5 server which
+          allow users to play against each other by choosing their own role
+          player and much more. We are still in the development phase. Please
+          join our server using sign up button.
+        </p>
+      </div>
+
+      <div class="main__button container">
+        <a
+          href="https://docs.google.com/forms/d/15g-A7mXwxXqL9ccuMbtBH7qdfejzgGb2qSFuL_Iy9WY/edit"
+          target="_blank"
+          ><button type="button">Sign Up!</button></a
+        >
+      </div>
+    </main>
+    <!-- main container -->
+
+    <footer class="footer">
+      &#169; Copyright 2022. The Notorious Team(TNT).
+    </footer>
+  </body>
+</html>

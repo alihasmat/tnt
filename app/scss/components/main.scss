@@ -1,0 +1,117 @@
+@use "../utils/" as *;
+
+.main {
+  text-align: center;
+  padding-inline: rem(16);
+  display: grid;
+  place-items: center;
+
+  @include breakpoint-up(medium) {
+    text-align: left;
+    padding-inline: rem(55);
+    grid-template-columns: minmax(2em, 1fr) repeat(2, minmax(0, rem(720))) minmax(
+        2em,
+        1fr
+      );
+    column-gap: rem(32);
+  }
+
+  &__text {
+    @include breakpoint-up(medium) {
+      grid-column: 2;
+    }
+
+    h1 {
+      font-size: clamp(1rem, 2vw, rem(28));
+      font-weight: 400;
+      color: var(--accent-color);
+      font-family: var(--secondary-font);
+      letter-spacing: rem(4.27);
+      line-height: 1;
+      margin-bottom: rem(30);
+
+      span {
+        display: block;
+      }
+    }
+
+    p {
+      font-size: clamp(rem(13), 1.5vw, rem(18));
+      max-width: 50ch;
+
+      @include breakpoint-up(medium) {
+        max-width: 35ch;
+      }
+    }
+
+    &__title {
+      font-size: clamp(rem(110), 13vw + 1rem, rem(200));
+      font-weight: 700;
+      font-family: var(--primary-font);
+      background: linear-gradient(
+        180deg,
+        #fef3c3 42.62%,
+        rgba(140, 95, 44, 0) 79.51%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    &__subtitle {
+      font-size: clamp(1rem, 2vw, rem(29));
+      letter-spacing: rem(4.725);
+      font-family: var(--primary-font);
+      text-transform: uppercase;
+      background: linear-gradient(
+        180deg,
+        #fef3c3 0%,
+        rgba(208, 214, 249, 0) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+
+  &__button {
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint-up(medium) {
+      grid-column: 3;
+    }
+
+    button {
+      position: relative;
+      z-index: 1;
+      outline: none;
+      border: none;
+      font-size: rem(20);
+      padding: 0 2em;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      background: var(--accent-color);
+      letter-spacing: rem(2);
+      font-weight: 700;
+      cursor: pointer;
+
+      @include breakpoint-up(medium) {
+        font-size: rem(32);
+      }
+    }
+
+    button:hover {
+      animation: pulse 1.5s;
+      box-shadow: 0 0 0 2em rgba(#979797, 0);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 #fff;
+      }
+    }
+  }
+}

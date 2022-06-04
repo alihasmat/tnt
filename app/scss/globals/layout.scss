@@ -1,0 +1,29 @@
+@use "../utils/" as *;
+
+.container {
+  max-width: rem(1440);
+  margin-inline: auto;
+}
+
+@include breakpoint-up(medium) {
+  .main-home {
+    padding-bottom: max(6rem, 15vh);
+    align-items: end;
+  }
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

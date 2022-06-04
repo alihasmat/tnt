@@ -1,0 +1,142 @@
+@use "../utils/" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint-up(medium) {
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      height: rem(2);
+      width: 100%;
+      background: red;
+      order: 1;
+      margin-right: rem(-48);
+      background-color: var(--white-trans);
+      z-index: 1000;
+    }
+  }
+
+  &__logo {
+    margin: rem(24) clamp(rem(24), 5vw, rem(55));
+    @include breakpoint-up(medium) {
+      flex-shrink: 0;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    cursor: pointer;
+
+    @include breakpoint-down(small) {
+      display: block;
+      position: absolute;
+      z-index: 2000;
+      right: 1rem;
+      top: 3.5rem;
+      background: transparent;
+      background-image: url("/images/icon-hamburger.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      border: none;
+    }
+
+    &[aria-expanded="true"] {
+      background-image: url("/images/icon-close.svg");
+    }
+  }
+
+  &__nav {
+    margin: 0;
+    padding: 0;
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    background-color: var(--white-trans);
+
+    @include breakpoint-down(small) {
+      flex-direction: column;
+      background-color: var(--bg-color);
+      position: fixed;
+      inset: 0 0 0 30%;
+      z-index: 1000;
+      padding: min(20rem, 15vh) 2rem;
+      margin: 0;
+      transform: translateX(100%);
+      transition: transform 500ms ease-in-out;
+
+      @supports (backdrop-filter: blur(1.5rem)) {
+        background-color: var(--white-color) / 0.005;
+        backdrop-filter: blur(rem(32));
+      }
+      &[data-visible="true"] {
+        transform: translateX(0);
+      }
+    }
+
+    @include breakpoint-up(small) {
+      padding: 0 clamp(rem(48), 10vw, rem(123));
+      order: 2;
+    }
+
+    @include breakpoint-minmax(small, medium) {
+      display: flex;
+      align-items: center;
+    }
+
+    @include breakpoint-up(medium) {
+      margin-block: rem(32); //margin block is margin top and bottom
+      flex-shrink: 0;
+    }
+
+    ul {
+      display: flex;
+      gap: clamp(rem(24), 7vw, rem(55));
+      padding: 0;
+      margin: 0;
+
+      @include breakpoint-down(small) {
+        flex-direction: column;
+      }
+
+      @include breakpoint-up(small) {
+        .active {
+          border-bottom: rem(2) solid var(--white-color);
+        }
+      }
+
+      li {
+        @include breakpoint-up(small) {
+          padding: rem(39) 0;
+        }
+
+        @include breakpoint-minmax(small, medium) {
+          padding: rem(16) 0;
+        }
+
+        a {
+          color: var(--white-color);
+          letter-spacing: rem(2.7);
+          text-transform: uppercase;
+
+          span {
+            @include breakpoint-minmax(small, medium) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @include breakpoint-up(small) {
+        li:hover,
+        li:focus {
+          border-bottom: rem(2) solid var(--white-color);
+        }
+      }
+    }
+  }
+}

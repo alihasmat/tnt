@@ -1,0 +1,55 @@
+@use "../utils/" as *;
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: var(--primary-font);
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  background-image: url("/images/mobile-image.jpg");
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include breakpoint-up(small) {
+    background-image: url("/images/tablet-image.jpg");
+  }
+
+  @include breakpoint-up(medium) {
+    background-image: url("/images/homepage-image.jpg");
+  }
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

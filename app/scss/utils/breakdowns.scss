@@ -1,0 +1,29 @@
+//small 560, medium 720px
+$breakpoints-up: (
+  "small": "35em",
+  "medium": "45em",
+);
+
+$breakpoints-down: (
+  "small": "35em",
+  "medium": "44.99em",
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+// For hybrid design
+@mixin breakpoint-minmax($min, $max) {
+  @media (min-width: map-get($breakpoints-up, $min)) and (max-width: map-get($breakpoints-down, $max)) {
+    @content;
+  }
+} ;

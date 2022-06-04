@@ -1,0 +1,8 @@
+@use "../utils/" as *;
+
+.footer {
+  font-size: rem(12);
+  color: var(--white-trans);
+  text-align: center;
+  padding-bottom: rem(16);
+}
